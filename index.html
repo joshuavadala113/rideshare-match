@@ -1,82 +1,53 @@
 
-const form = document.getElementById("rideForm");
-const rideList = document.getElementById("rideList");
-const search = document.getElementById("search");
-const message = document.getElementById("message");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rideshare Match</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Rideshare Match</h1>
+    <p>Find a ride. Share the journey.</p>
+  </header>
 
-let rides = [];
+  <main>
+    <section class="card">
+      <h2>Post a Ride</h2>
 
-try {
-  rides = JSON.parse(localStorage.getItem("rideshareRides") || "[]");
-  if (!Array.isArray(rides)) rides = [];
-} catch {
-  rides = [];
-}
+      <form id="rideForm">
+        <label for="driver">Your name</label>
+        <input id="driver" required placeholder="Enter your name">
 
-function saveRides() {
-  localStorage.setItem("rideshareRides", JSON.stringify(rides));
-}
+        <label for="from">Pickup location</label>
+        <input id="from" required placeholder="e.g. UNT Denton">
 
-function renderRides() {
-  const query = search.value.trim().toLowerCase();
+        <label for="to">Destination</label>
+        <input id="to" required placeholder="e.g. Dallas">
 
-  const filtered = rides.filter(ride =>
-    ride.from.toLowerCase().includes(query) ||
-    ride.to.toLowerCase().includes(query)
-  );
+        <label for="date">Departure date</label>
+        <input id="date" type="date" required>
 
-  rideList.replaceChildren();
+        <label for="seats">Available seats</label>
+        <input id="seats" type="number" min="1" max="8" value="3" required>
 
-  if (filtered.length === 0) {
-    rideList.textContent = "No matching rides found.";
-    return;
-  }
+        <button type="submit">Post Ride</button>
+      </form>
 
-  filtered.forEach(ride => {
-    const card = document.createElement("article");
-    card.className = "ride";
+      <p id="message" role="status"></p>
+    </section>
 
-    const title = document.createElement("h3");
-    title.textContent = `${ride.from} → ${ride.to}`;
+    <section class="card">
+      <h2>Find a Ride</h2>
+      <label for="search">Search pickup or destination</label>
+      <input id="search" placeholder="Enter a location">
+      <div id="rideList" aria-live="polite"></div>
+    </section>
+  </main>
 
-    const details = document.createElement("p");
-    details.textContent =
-      `Driver: ${ride.driver} | Date: ${ride.date} | Seats: ${ride.seats}`;
-
-    card.append(title, details);
-    rideList.appendChild(card);
-  });
-}
-
-form.addEventListener("submit", event => {
-  event.preventDefault();
-
-  const ride = {
-    driver: document.getElementById("driver").value.trim(),
-    from: document.getElementById("from").value.trim(),
-    to: document.getElementById("to").value.trim(),
-    date: document.getElementById("date").value,
-    seats: Number(document.getElementById("seats").value)
-  };
-
-  if (!ride.driver || !ride.from || !ride.to || !ride.date) {
-    message.textContent = "Please complete all fields.";
-    return;
-  }
-
-  if (ride.date < new Date().toLocaleDateString("en-CA")) {
-    message.textContent = "Choose today or a future date.";
-    return;
-  }
-
-  rides.push(ride);
-  saveRides();
-  form.reset();
-  document.getElementById("seats").value = 3;
-  message.textContent = "Ride posted successfully!";
-  renderRides();
-});
-
-search.addEventListener("input", renderRides);
-
-renderRides();
+  <footer>Rideshare Match — Student Project</footer>
+  <script src="app.js"></script>
+</body>
+</html>
