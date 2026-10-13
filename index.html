@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rideshare Match</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Rideshare Match</h1>
+    <p>Find a ride. Share the journey.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Post a Ride</h2>
+
+      <form id="rideForm">
+        <label for="driver">Your name</label>
+        <input id="driver" required placeholder="Enter your name">
+
+        <label for="from">Pickup location</label>
+        <input id="from" required placeholder="e.g. UNT Denton">
+
+        <label for="to">Destination</label>
+        <input id="to" required placeholder="e.g. Dallas">
+
+        <label for="date">Departure date</label>
+        <input id="date" type="date" required>
+
+        <label for="seats">Available seats</label>
+        <input id="seats" type="number" min="1" max="8" value="3" required>
+
+        <button type="submit">Post Ride</button>
+      </form>
+
+      <p id="message" role="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>Find a Ride</h2>
+      <label for="search">Search pickup or destination</label>
+      <input id="search" placeholder="Enter a location">
+      <div id="rideList" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>Rideshare Match — Student Project</footer>
+  <script src="app.js"></script>
+</body>
+</html>
