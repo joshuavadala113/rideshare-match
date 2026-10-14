@@ -8,6 +8,7 @@ const APP_TABS = [
   { label: "Post Ride", href: "postride.html", icon: "plus" },
   { label: "Matches", href: "matches.html", icon: "people" },
   { label: "Messages", href: "messages.html", icon: "chat" },
+  { label: "Activity", href: "activity.html", icon: "clock" },
 ];
 
 // Shown when nobody is logged in
@@ -41,6 +42,19 @@ function makeLink(link, current, withIcon) {
   const text = document.createElement("span");
   text.textContent = link.label;
   a.appendChild(text);
+
+  // Small red dot with the number of unread notifications
+  if (link.href === "activity.html" && typeof findItems === "function" && typeof getCurrentUser === "function") {
+    const me = getCurrentUser();
+    const unread = me ? findItems("notifications", (n) => n.userId === me.id && !n.read).length : 0;
+    if (unread > 0) {
+      const dot = document.createElement("b");
+      dot.className = "badge-count";
+      dot.textContent = unread > 9 ? "9+" : unread;
+      a.appendChild(dot);
+    }
+  }
+
   if (link.href === current) a.className = "active";
   return a;
 }
