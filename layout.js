@@ -84,9 +84,10 @@ function buildHeader() {
     logout.addEventListener("click", () => clearCurrentUser());
     nav.appendChild(logout);
 
-    const avatar = document.createElement("span");
+    const avatar = document.createElement("a");
     avatar.className = "avatar";
-    avatar.title = user.name || user.email;
+    avatar.href = "settings.html";
+    avatar.title = "Settings & Profile";
     avatar.textContent = initials(user.name || user.email);
     nav.appendChild(avatar);
 

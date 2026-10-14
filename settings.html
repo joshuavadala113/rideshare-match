@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings &amp; Profile - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone">
+    <p class="eyebrow">ACCOUNT MANAGEMENT</p>
+    <h1 class="page-title">Settings &amp; Profile</h1>
+
+    <!-- Profile card -->
+    <section class="card profile">
+      <div class="profile-top">
+        <div class="avatar xl" id="bigAvatar">?</div>
+        <div class="grow">
+          <div class="label-row">
+            <h2 id="profName" style="margin:0">Your name</h2>
+            <button type="button" class="chip" id="editBtn" style="margin:0">Edit</button>
+          </div>
+          <span class="badge" id="profCampus">Campus</span>
+          <p class="fine" id="profMeta" style="margin:8px 0 0"></p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div><small>CO2 OFFSET</small><strong id="statCo2">0 kg</strong></div>
+        <div><small>CARPOOL TRUST</small><strong class="blue" id="statTrust">100%</strong></div>
+        <div><small>GAS SAVED</small><strong id="statGas">$0</strong></div>
+      </div>
+
+      <form id="editForm" class="hidden" novalidate>
+        <label for="editName">Full name</label>
+        <input id="editName" autocomplete="name">
+
+        <label for="editCampus">Campus or workspace</label>
+        <select id="editCampus">
+          <option>UNT</option>
+          <option>UT Dallas</option>
+          <option>SMU</option>
+          <option>Dallas College</option>
+          <option>Workplace</option>
+        </select>
+
+        <label for="editEmail">Email (can't be changed)</label>
+        <input id="editEmail" disabled>
+
+        <div class="actions">
+          <button type="submit" class="grow">Save changes</button>
+          <button type="button" class="btn-soft" id="cancelEdit" style="width:auto;padding:14px 18px">Cancel</button>
+        </div>
+        <p id="editMessage" class="error" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Wallet -->
+    <div class="label-row section-head">
+      <h3>Wallet &amp; Expenses</h3>
+      <span class="tag">Simulated</span>
+    </div>
+    <section class="card">
+      <div class="row-box">
+        <div class="grow">
+          <strong>No payment method added</strong>
+          <div class="fine" style="margin:2px 0 0">Payments are simulated in this demo.</div>
+        </div>
+      </div>
+
+      <div class="row-box">
+        <div class="grow">
+          <strong>Auto-split &amp; fuel escrow</strong>
+          <div class="fine" style="margin:2px 0 0">Pre-authorized commuter share</div>
+        </div>
+        <label class="switch" aria-label="Auto-split">
+          <input type="checkbox" id="autoSplit" data-pref="autoSplit">
+          <span></span>
+        </label>
+      </div>
+      <p class="fine">Pending weekly gas &amp; toll hold: <strong>$0.00</strong></p>
+    </section>
+
+    <!-- Preferences -->
+    <div class="label-row section-head">
+      <h3>Commute Preferences</h3>
+      <span class="tag" style="color:var(--muted)" id="savedTag">Auto-saved</span>
+    </div>
+    <section class="card">
+      <label style="margin-top:0">Default role</label>
+      <div class="segmented" id="roleChoice">
+        <button type="button" class="seg" data-value="rider">Rider only</button>
+        <button type="button" class="seg" data-value="driver">Driver only</button>
+        <button type="button" class="seg" data-value="both">Both</button>
+      </div>
+
+      <label>Ride atmosphere &amp; needs</label>
+      <label class="pref"><span>Front passenger seat</span><input type="checkbox" data-pref="frontSeat"></label>
+      <label class="pref"><span>Quiet commute mode</span><input type="checkbox" data-pref="quiet"></label>
+      <label class="pref"><span>Trunk / luggage space</span><input type="checkbox" data-pref="trunk"></label>
+      <label class="pref"><span>EV-only preference</span><input type="checkbox" data-pref="evOnly"></label>
+
+      <label class="pref plain">
+        <span><strong>Match affinity alerts</strong><small>Instant ping when 95%+ of the route overlaps</small></span>
+        <input type="checkbox" data-pref="matchAlerts">
+      </label>
+      <label class="pref plain">
+        <span><strong>Live arrival alerts (3 min out)</strong><small>Alert before the curbside stop</small></span>
+        <input type="checkbox" data-pref="arrivalAlerts">
+      </label>
+    </section>
+
+    <!-- Co-riders -->
+    <div class="label-row section-head">
+      <h3>Frequent Co-Riders</h3>
+      <span class="tag">View all history (0)</span>
+    </div>
+    <section class="card">
+      <p class="fine" style="margin:0">Your co-riders will show up here after your first carpool.</p>
+    </section>
+
+    <!-- Support -->
+    <div class="section-head"><h3>Support &amp; Trust Center</h3></div>
+    <section class="card list-card">
+      <div class="list-row"><span><strong>Campus safety &amp; escort hotline</strong><small>24/7 campus police direct line</small></span><i>&rsaquo;</i></div>
+      <div class="list-row"><span><strong>Carpool safety guidelines &amp; FAQs</strong><small>Verification badge criteria and zero tolerance rules</small></span><i>&rsaquo;</i></div>
+      <div class="list-row"><span><strong>Location sharing &amp; privacy policy</strong><small>How trip location data is protected</small></span><i>&rsaquo;</i></div>
+    </section>
+
+    <button type="button" class="logout" id="logoutBtn">Log Out of RideShare Match</button>
+    <p class="fine center">RideShare Match v1.0 (CSCE 3444 class demo)</p>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>
