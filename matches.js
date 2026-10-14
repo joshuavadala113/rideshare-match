@@ -152,7 +152,10 @@ function makeCard(match, mine) {
   card.appendChild(tags);
 
   // Details that open with the info button
-  const details = el("p", "fine hidden", "Shared days: " + match.sharedDays.join(", ") + ". Time gap: " + match.timeGap + " min.");
+  const details = el("p", "fine hidden", "Shared days: " + match.sharedDays.join(", ") + ". Time gap: " + match.timeGap + " min. ");
+  const more = el("a", "blue-text", "Full ride details");
+  more.href = "ride.html?c=" + encodeURIComponent(c.id) + "&mine=" + encodeURIComponent(mine.id);
+  details.appendChild(more);
   card.appendChild(details);
 
   // Buttons

@@ -161,6 +161,7 @@ function openChat() {
   if (trip) {
     document.getElementById("tripTime").textContent = "Leaves " + formatTime(trip.departTime) + " · " + trip.days.join(", ");
     document.getElementById("tripRoute").textContent = trip.from + " → " + trip.to;
+    document.getElementById("viewTrip").href = "ride.html?c=" + encodeURIComponent(trip.id) + "&mine=" + encodeURIComponent(link.myCommuteId);
   } else {
     tripBar.classList.add("hidden");
   }

@@ -1558,3 +1558,36 @@ nav a.avatar:hover {
     margin-bottom: 24px;
   }
 }
+
+/* ---- Ride details ---- */
+
+.back-link {
+  display: inline-block;
+  margin: 12px 0;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.stop {
+  margin-bottom: 14px;
+  padding-left: 14px;
+  border-left: 3px dashed #f0c9b8;
+}
+
+.stop strong {
+  display: block;
+  font-size: 18px;
+}
+
+.share-price {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+hr {
+  border: 0;
+  border-top: 2px dashed var(--line);
+  margin: 14px 0;
+}
