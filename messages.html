@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone chat-page">
+    <!-- Inbox -->
+    <section id="inbox">
+      <div class="label-row">
+        <span class="eyebrow"><i class="dot blue"></i> MESSAGES</span>
+        <span class="pill" style="margin:0" id="threadCount">0 chats</span>
+      </div>
+      <div id="threadList"></div>
+      <p class="fine" id="demoNote">Demo drivers and riders send automatic replies. They are made up.</p>
+    </section>
+
+    <!-- One conversation -->
+    <section id="chat" class="hidden">
+      <div class="chat-head">
+        <a class="round-btn back" href="messages.html" aria-label="Back to messages">&#8592;</a>
+        <div class="avatar big" id="chatAvatar">?</div>
+        <div class="grow">
+          <div class="name-line"><strong id="chatName"></strong><span class="verified" title="Verified campus email">&#10003;</span></div>
+          <span class="chip small" id="chatCar"></span>
+        </div>
+        <button type="button" class="round-btn" id="callBtn" aria-label="Call">&#9742;</button>
+      </div>
+
+      <div class="card trip-bar" id="tripBar">
+        <div class="grow">
+          <strong id="tripTime"></strong>
+          <div class="fine" style="margin:2px 0 0" id="tripRoute"></div>
+        </div>
+        <a class="chip selected" href="matches.html" style="margin:0">View Trip &#8594;</a>
+      </div>
+
+      <p class="fine center hidden" id="chatNote"></p>
+
+      <div id="bubbles" class="bubbles" aria-live="polite"></div>
+
+      <div class="quick-replies" id="quickReplies">
+        <button type="button" class="chip" data-text="I am here!">I am here!</button>
+        <button type="button" class="chip" data-text="Running 2 mins late">Running 2 mins late</button>
+        <button type="button" class="chip" data-text="Front passenger seat is fine">Front seat is fine</button>
+        <button type="button" class="chip" data-text="Where should we meet?">Where should we meet?</button>
+      </div>
+
+      <form id="sendForm" class="composer" autocomplete="off">
+        <input type="text" id="msgInput" placeholder="Message" maxlength="500" aria-label="Type a message">
+        <button type="submit" class="send" aria-label="Send">&#10148;</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="demo-data.js"></script>
+  <script src="messages.js"></script>
+</body>
+</html>

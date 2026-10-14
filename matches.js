@@ -202,6 +202,16 @@ function sendRequest(match, mine, button) {
 
   button.textContent = "Requested";
   button.disabled = true;
+
+  // Offer a shortcut to the chat
+  if (!button.parentNode.querySelector(".chat-link")) {
+    const chat = document.createElement("a");
+    chat.className = "btn btn-soft chat-link";
+    chat.style.width = "auto";
+    chat.textContent = "Message";
+    chat.href = "messages.html?with=" + encodeURIComponent(match.commute.userId);
+    button.parentNode.insertBefore(chat, button.nextSibling);
+  }
 }
 
 // ---- Draw everything ----
