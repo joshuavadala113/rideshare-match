@@ -1,10 +1,10 @@
 // layout.js
-// Builds the header and nav bar so every page looks the same.
+// Builds the top bar and footer so every page looks the same.
 // To add a page to the menu, add one line to NAV_LINKS.
 
 // Always shown
 const NAV_LINKS = [
-  { label: "Home", href: "index.html" },
+  { label: "Rides", href: "rides.html" },
 ];
 
 // Only shown when nobody is logged in
@@ -26,13 +26,18 @@ function buildHeader() {
 
   const current = location.pathname.split("/").pop() || "index.html";
 
-  const title = document.createElement("div");
-  title.className = "brand";
-  const h1 = document.createElement("h1");
-  h1.textContent = "Rideshare Match";
-  const tagline = document.createElement("p");
-  tagline.textContent = "Find a ride. Share the journey.";
-  title.append(h1, tagline);
+  const bar = document.createElement("div");
+  bar.className = "topbar";
+
+  const brand = document.createElement("a");
+  brand.className = "brand";
+  brand.href = "index.html";
+  const logo = document.createElement("img");
+  logo.src = "logo.png";
+  logo.alt = "";
+  const name = document.createElement("span");
+  name.textContent = "RideShare Match";
+  brand.append(logo, name);
 
   const nav = document.createElement("nav");
   NAV_LINKS.forEach((link) => nav.appendChild(makeLink(link, current)));
@@ -53,13 +58,14 @@ function buildHeader() {
     LOGGED_OUT_LINKS.forEach((link) => nav.appendChild(makeLink(link, current)));
   }
 
-  header.replaceChildren(title, nav);
+  bar.append(brand, nav);
+  header.replaceChildren(bar);
 }
 
 function buildFooter() {
   const footer = document.getElementById("siteFooter");
   if (!footer) return;
-  footer.textContent = "Rideshare Match - CSCE 3444 Student Project";
+  footer.textContent = "RideShare Match - CSCE 3444 Student Project";
 }
 
 buildHeader();

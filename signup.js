@@ -14,6 +14,13 @@ const BLOCKED_EMAIL_DOMAINS = [
 
 const signupForm = document.getElementById("signupForm");
 const signupMessage = document.getElementById("message");
+const emailInput = document.getElementById("email");
+const emailTag = document.getElementById("emailTag");
+const passwordInput = document.getElementById("password");
+const passTag = document.getElementById("passTag");
+
+let campus = "UNT";
+let plan = "both";
 
 function showError(text) {
   signupMessage.className = "error";
@@ -33,14 +40,68 @@ function emailAlreadyUsed(email) {
   return findItems("users", (u) => u.email === email).length > 0;
 }
 
+// ---- Chips and plan buttons ----
+
+function wireChoice(containerId, itemClass, onPick) {
+  const container = document.getElementById(containerId);
+  container.addEventListener("click", (event) => {
+    const button = event.target.closest("." + itemClass);
+    if (!button) return;
+    container.querySelectorAll("." + itemClass).forEach((b) => b.classList.remove("selected"));
+    button.classList.add("selected");
+    onPick(button.dataset.value);
+  });
+}
+
+wireChoice("campusChips", "chip", (value) => { campus = value; });
+wireChoice("planChoice", "seg", (value) => { plan = value; });
+
+// ---- Show / hide password ----
+
+document.querySelectorAll(".toggle").forEach((button) => {
+  button.addEventListener("click", () => {
+    const input = document.getElementById(button.dataset.target);
+    const showing = input.type === "text";
+    input.type = showing ? "password" : "text";
+    button.textContent = showing ? "Show" : "Hide";
+  });
+});
+
+// ---- Live hints ----
+
+emailInput.addEventListener("input", () => {
+  const email = emailInput.value.trim().toLowerCase();
+  if (isValidEmailShape(email) && isEligibleEmail(email)) {
+    emailTag.textContent = "Eligible email";
+    emailTag.className = "tag ok";
+  } else {
+    emailTag.textContent = "";
+  }
+});
+
+passwordInput.addEventListener("input", () => {
+  const length = passwordInput.value.length;
+  if (length === 0) {
+    passTag.textContent = "";
+  } else if (length < 8) {
+    passTag.textContent = "Too short";
+  } else if (length < 12) {
+    passTag.textContent = "Okay";
+  } else {
+    passTag.textContent = "Strong";
+  }
+});
+
+// ---- Submit ----
+
 signupForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim().toLowerCase();
-  const role = document.getElementById("role").value;
-  const password = document.getElementById("password").value;
+  const email = emailInput.value.trim().toLowerCase();
+  const password = passwordInput.value;
   const confirm = document.getElementById("confirm").value;
+  const agreed = document.getElementById("terms").checked;
 
   if (!name || !email || !password || !confirm) {
     showError("Please fill in every field.");
@@ -72,20 +133,26 @@ signupForm.addEventListener("submit", (event) => {
     return;
   }
 
+  if (!agreed) {
+    showError("Please agree to the terms to continue.");
+    return;
+  }
+
   // NOTE: storing a plain password is only OK because this is a class demo
   // with no server. A real app would never do this.
   const user = {
     id: newId("u"),
     name,
     email,
-    role,
+    campus,
+    plan,
     password,
     status: "active",
     createdAt: new Date().toISOString(),
   };
 
   addItem("users", user);
-  setCurrentUser({ id: user.id, name: user.name, email: user.email, role: user.role });
+  setCurrentUser({ id: user.id, name: user.name, email: user.email, campus, plan });
 
-  window.location.href = "index.html";
+  window.location.href = "rides.html";
 });

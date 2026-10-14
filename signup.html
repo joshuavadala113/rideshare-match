@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up - Rideshare Match</title>
+  <title>Create Account - RideShare Match</title>
+  <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,32 +12,60 @@
 
   <main class="single">
     <section class="card">
-      <h2>Create your account</h2>
-      <p>Use your school or work email so other riders know you're real.</p>
+      <h2>Join your commute network</h2>
+      <p class="fine">Connect and share rides exclusively with verified campus and workplace peers.</p>
 
       <form id="signupForm" novalidate>
-        <label for="name">Full name</label>
+        <label for="name">Full legal name</label>
         <input id="name" autocomplete="name" placeholder="Your full name">
 
-        <label for="email">School or work email</label>
+        <div class="label-row">
+          <label for="email">Institutional / work email</label>
+          <span id="emailTag" class="tag"></span>
+        </div>
         <input id="email" type="email" autocomplete="email" placeholder="you@my.unt.edu">
 
-        <label for="role">I am a</label>
-        <select id="role">
-          <option value="student">Student</option>
-          <option value="coworker">Coworker</option>
-        </select>
+        <label>Campus or workspace</label>
+        <div class="chips" id="campusChips">
+          <button type="button" class="chip selected" data-value="UNT">UNT</button>
+          <button type="button" class="chip" data-value="UT Dallas">UT Dallas</button>
+          <button type="button" class="chip" data-value="SMU">SMU</button>
+          <button type="button" class="chip" data-value="Dallas College">Dallas College</button>
+          <button type="button" class="chip" data-value="Workplace">Workplace</button>
+        </div>
 
-        <label for="password">Password</label>
-        <input id="password" type="password" autocomplete="new-password" placeholder="At least 8 characters">
+        <div class="label-row">
+          <label for="password">Create password</label>
+          <span id="passTag" class="tag"></span>
+        </div>
+        <div class="password-wrap">
+          <input id="password" type="password" autocomplete="new-password" placeholder="At least 8 characters">
+          <button type="button" class="toggle" data-target="password">Show</button>
+        </div>
 
         <label for="confirm">Confirm password</label>
-        <input id="confirm" type="password" autocomplete="new-password" placeholder="Type it again">
+        <div class="password-wrap">
+          <input id="confirm" type="password" autocomplete="new-password" placeholder="Type it again">
+          <button type="button" class="toggle" data-target="confirm">Show</button>
+        </div>
 
-        <button type="submit">Sign Up</button>
+        <label>I plan to</label>
+        <div class="segmented" id="planChoice">
+          <button type="button" class="seg" data-value="driver">Driver</button>
+          <button type="button" class="seg" data-value="rider">Rider</button>
+          <button type="button" class="seg selected" data-value="both">Both</button>
+        </div>
+
+        <div class="checkbox-row">
+          <input id="terms" type="checkbox">
+          <label for="terms" style="margin:0;font-weight:400">I agree to the terms and confirm non-commercial carpooling rules.</label>
+        </div>
+
+        <button type="submit">Create Account</button>
       </form>
 
       <p id="message" class="error" role="status"></p>
+      <p class="fine center">Already have an account? <a href="login.html">Log in</a></p>
     </section>
   </main>
 

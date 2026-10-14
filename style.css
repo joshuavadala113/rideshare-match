@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 /* Colors taken from our Figma UI design */
 :root {
@@ -10,7 +10,8 @@
   --page: #fbf8ff;
   --surface: #f4f2fd;
   --line: #e8e7f1;
-  --orange: #ff8a1f;
+  --orange: #ff6a00;
+  --orange-dark: #e55f00;
   --danger: #b3261e;
   --ok: #1f7a4d;
 }
@@ -26,38 +27,49 @@ body {
   color: var(--ink);
 }
 
-/* ---- Header and nav ---- */
+a {
+  color: var(--blue-dark);
+}
+
+/* ---- Top bar (every page except the welcome page) ---- */
 
 header {
   background: white;
   border-bottom: 1px solid var(--line);
-  padding: 18px 20px 0;
 }
 
-header .brand {
-  text-align: center;
-  padding-bottom: 12px;
+.topbar {
+  width: min(1000px, 94%);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 0;
 }
 
-header h1 {
-  margin: 0 0 4px;
-  font-size: 24px;
-  font-weight: 700;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 18px;
 }
 
-header p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
+.brand img {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  gap: 6px;
-  padding: 8px 0 12px;
+  gap: 4px;
 }
 
 nav a {
@@ -96,10 +108,10 @@ main {
   align-items: start;
 }
 
-/* One centered card, used by sign-up and login */
+/* One centered phone-width card, used by welcome, sign-up and login */
 main.single {
   display: block;
-  width: min(480px, 92%);
+  width: min(440px, 94%);
 }
 
 .card {
@@ -115,11 +127,37 @@ main.single {
   font-size: 22px;
 }
 
+.center {
+  text-align: center;
+}
+
+/* ---- Forms ---- */
+
 label {
   display: block;
-  margin: 14px 0 6px;
+  margin: 16px 0 6px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.label-row label {
+  margin-bottom: 6px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+.tag.ok {
+  color: var(--ok);
 }
 
 input,
@@ -141,23 +179,220 @@ textarea:focus {
   background: white;
 }
 
-button {
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 64px;
+}
+
+.password-wrap .toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  margin: 0;
+  padding: 6px 10px;
+  background: transparent;
+  color: var(--blue-dark);
+  font-size: 13px;
+}
+
+.password-wrap .toggle:hover {
+  background: var(--blue-soft);
+}
+
+/* ---- Buttons ---- */
+
+button,
+.btn {
+  display: block;
   width: 100%;
   margin-top: 18px;
-  padding: 13px;
+  padding: 14px;
   border: none;
   border-radius: 12px;
-  background: var(--blue-dark);
+  background: var(--blue);
   color: white;
   font: inherit;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
 }
 
-button:hover {
-  background: #3d63d6;
+button:hover,
+.btn:hover {
+  background: var(--blue-dark);
 }
+
+.btn-orange {
+  background: var(--orange);
+}
+
+.btn-orange:hover {
+  background: var(--orange-dark);
+}
+
+.btn-dark {
+  background: var(--ink);
+}
+
+.btn-dark:hover {
+  background: #000;
+}
+
+.btn-soft {
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-soft:hover {
+  background: var(--blue-soft);
+}
+
+/* ---- Chips and segmented choices ---- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  width: auto;
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--line);
+}
+
+.chip:hover {
+  background: var(--blue-soft);
+}
+
+.chip.selected {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 4px;
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.segmented .seg {
+  margin: 0;
+  padding: 10px 6px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.segmented .seg:hover {
+  background: var(--blue-soft);
+}
+
+.segmented .seg.selected {
+  background: white;
+  color: var(--ink);
+  box-shadow: 0 1px 6px #00000014;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.checkbox-row input {
+  width: 18px;
+  margin-top: 2px;
+}
+
+/* ---- Welcome page ---- */
+
+.welcome {
+  text-align: center;
+  padding: 36px 24px 28px;
+}
+
+.welcome .logo {
+  display: block;
+  margin: 0 auto;
+  width: 84px;
+  height: 84px;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px #14141a30;
+}
+
+.pill {
+  display: inline-block;
+  margin: 18px 0 8px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue-dark);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.welcome h1 {
+  margin: 0 0 6px;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.welcome .sub {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.feature {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.feature strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.feature span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.fine {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---- Rides page ---- */
 
 .ride {
   border: 1px solid var(--line);
@@ -171,21 +406,23 @@ button:hover {
   margin-top: 0;
 }
 
-/* Small helper classes the next pages will use */
+/* ---- Messages ---- */
 
 .error {
   color: var(--danger);
-  margin: 10px 0 0;
+  margin: 12px 0 0;
+  font-size: 14px;
 }
 
 .success {
   color: var(--ok);
-  margin: 10px 0 0;
+  margin: 12px 0 0;
+  font-size: 14px;
 }
 
 footer {
   text-align: center;
   padding: 20px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
 }
