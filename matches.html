@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matches - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone">
+    <div class="label-row">
+      <span class="eyebrow"><i class="dot blue"></i> DAILY COMMUTE</span>
+      <span class="pill" style="margin:0" id="countPill">0 matches found</span>
+    </div>
+
+    <!-- Which commute am I matching? -->
+    <section class="card route-card" id="routeCard">
+      <div class="grow">
+        <div class="route-title" id="routeTitle">Your route</div>
+        <div class="fine" style="margin:4px 0 0" id="routeSub"></div>
+        <select id="myCommute" class="hidden" aria-label="Choose which commute to match"></select>
+      </div>
+      <button type="button" class="round-btn" id="openFilter" aria-label="Sort and filter">&#9776;</button>
+    </section>
+
+    <div class="chips quick" id="filterChips">
+      <button type="button" class="chip" data-filter="top">90%+ match</button>
+      <button type="button" class="chip" data-filter="drivers">Drivers only</button>
+      <button type="button" class="chip" data-filter="earliest">Earliest depart</button>
+    </div>
+
+    <p class="fine" id="queryNote"></p>
+
+    <div id="results"></div>
+
+    <section class="notice" id="co2Card" style="flex-direction:row;align-items:center;gap:14px">
+      <div class="co2">CO<sub>2</sub></div>
+      <div>
+        <strong id="co2Text">Saving 0 kg CO2 per trip</strong>
+        <span>All matches are verified school or work emails. Demo people are labeled.</span>
+      </div>
+    </section>
+
+    <button type="button" class="floating-pill" id="floatFilter">Sort &amp; Filter</button>
+  </main>
+
+  <!-- Sort and filter sheet (FR-6) -->
+  <div class="sheet hidden" id="sheet" role="dialog" aria-label="Sort and filter">
+    <div class="sheet-body">
+      <div class="label-row"><h3 style="margin:0">Sort &amp; Filter</h3><button type="button" class="chip" id="closeSheet" style="margin:0">Close</button></div>
+
+      <label for="sortBy">Sort by</label>
+      <select id="sortBy">
+        <option value="match">Best match</option>
+        <option value="earliest">Earliest departure</option>
+        <option value="price">Lowest price</option>
+      </select>
+
+      <label>Leaves between</label>
+      <div class="two-col">
+        <input type="time" id="fromTime" aria-label="Earliest departure time">
+        <input type="time" id="toTime" aria-label="Latest departure time">
+      </div>
+
+      <label for="maxDetour">Longest detour</label>
+      <select id="maxDetour">
+        <option value="">Any distance</option>
+        <option value="1">Up to 1 mile</option>
+        <option value="3">Up to 3 miles</option>
+      </select>
+
+      <label for="minScore">Lowest match</label>
+      <select id="minScore">
+        <option value="40">40% and up</option>
+        <option value="60">60% and up</option>
+        <option value="80">80% and up</option>
+        <option value="90">90% and up</option>
+      </select>
+
+      <div class="actions">
+        <button type="button" class="grow" id="applyFilter">Show matches</button>
+        <button type="button" class="btn-soft" id="resetFilter" style="width:auto;padding:14px 18px">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="matching.js"></script>
+  <script src="demo-data.js"></script>
+  <script src="matches.js"></script>
+</body>
+</html>

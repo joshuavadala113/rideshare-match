@@ -1258,3 +1258,164 @@ nav a.avatar:hover {
 .btn-soft.danger {
   color: #c1121f;
 }
+
+/* ---- Match results ---- */
+
+.route-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.route-title {
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.round-btn {
+  width: 46px;
+  height: 46px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.round-btn:hover {
+  background: var(--blue-soft);
+}
+
+.card.route-card select {
+  margin-top: 10px;
+}
+
+.card.match {
+  margin-bottom: 14px;
+  border-top: 4px solid var(--blue);
+}
+
+.match-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.name-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.stars {
+  color: var(--blue-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.score {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #e4e4ea;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.score.high {
+  background: var(--blue);
+  color: white;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chip.small {
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: default;
+}
+
+.chip.small:hover {
+  background: var(--surface);
+}
+
+.floating-pill {
+  position: fixed;
+  left: 50%;
+  bottom: 84px;
+  transform: translateX(-50%);
+  z-index: 9;
+  width: auto;
+  margin: 0;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: var(--ink);
+  box-shadow: 0 10px 24px #1a1b2255;
+}
+
+.floating-pill:hover {
+  background: #000;
+}
+
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #1a1b2299;
+}
+
+.sheet.hidden {
+  display: none;
+}
+
+.sheet-body {
+  width: min(480px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 22px;
+  border-radius: 24px 24px 0 0;
+  background: white;
+}
+
+.co2 sub {
+  font-size: 9px;
+}
+
+@media (min-width: 701px) {
+  .floating-pill {
+    bottom: 28px;
+  }
+
+  .sheet {
+    align-items: center;
+  }
+
+  .sheet-body {
+    border-radius: 24px;
+  }
+}

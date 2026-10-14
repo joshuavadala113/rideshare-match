@@ -13,7 +13,7 @@ const queryInput = document.getElementById("query");
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const q = queryInput.value.trim();
-  window.location.href = q ? "rides.html?q=" + encodeURIComponent(q) : "rides.html";
+  window.location.href = q ? "matches.html?q=" + encodeURIComponent(q) : "matches.html";
 });
 
 // To Campus / To Office / Heading Home just fill in the search for now.
@@ -22,5 +22,5 @@ document.getElementById("quickChips").addEventListener("click", (event) => {
   if (!chip) return;
   document.querySelectorAll("#quickChips .chip").forEach((c) => c.classList.remove("selected"));
   chip.classList.add("selected");
-  window.location.href = "rides.html?q=" + encodeURIComponent(chip.dataset.q);
+  window.location.href = "matches.html?q=" + encodeURIComponent(chip.dataset.q);
 });

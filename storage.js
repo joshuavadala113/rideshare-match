@@ -6,6 +6,7 @@ const DB_KEYS = {
   users: "rsm_users",
   currentUser: "rsm_currentUser",
   commutes: "rsm_commutes",
+  matches: "rsm_matches",
   messages: "rsm_messages",
   confirmations: "rsm_confirmations",
   reviews: "rsm_reviews",

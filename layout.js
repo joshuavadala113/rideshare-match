@@ -6,6 +6,7 @@
 const APP_TABS = [
   { label: "Explore", href: "dashboard.html", icon: "compass" },
   { label: "Post Ride", href: "postride.html", icon: "plus" },
+  { label: "Matches", href: "matches.html", icon: "people" },
 ];
 
 // Shown when nobody is logged in
