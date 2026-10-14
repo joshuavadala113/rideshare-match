@@ -1641,3 +1641,41 @@ hr {
   background: white;
   color: #c0252b;
 }
+
+/* ---- Review ---- */
+
+.stars-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.star {
+  width: auto;
+  margin: 0;
+  padding: 0 4px;
+  background: transparent;
+  color: #d6d8e6;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.star.on {
+  color: var(--blue);
+}
+
+.star:hover {
+  background: transparent;
+  color: var(--blue-dark);
+}
+
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: white;
+  font: inherit;
+  resize: vertical;
+}
