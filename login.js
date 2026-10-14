@@ -11,7 +11,7 @@ function showMessage(text, kind) {
 
 // Already logged in? Skip this page.
 if (getCurrentUser()) {
-  window.location.href = "rides.html";
+  window.location.href = "dashboard.html";
 }
 
 // ---- Show / hide password ----
@@ -74,5 +74,5 @@ loginForm.addEventListener("submit", (event) => {
     plan: user.plan,
   });
 
-  window.location.href = "rides.html";
+  window.location.href = "dashboard.html";
 });

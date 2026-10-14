@@ -489,3 +489,341 @@ footer {
 .hubs .chip:hover {
   background: white;
 }
+
+/* ---- Logged-in app: avatar, tab bar, dashboard ---- */
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.avatar.big {
+  width: 52px;
+  height: 52px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+nav.topnav {
+  gap: 4px;
+}
+
+nav.topnav .avatar {
+  margin-left: 8px;
+}
+
+.tabbar {
+  display: none;
+}
+
+main.phone {
+  display: block;
+  width: min(440px, 94%);
+  margin: 20px auto 28px;
+}
+
+.grow {
+  flex: 1;
+}
+
+.searchbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 20px;
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 18px #7094ff14;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  color: var(--blue-dark);
+}
+
+.search-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.search-text {
+  flex: 1;
+}
+
+.search-text small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.search-text input {
+  padding: 4px 0;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+}
+
+.search-text input:focus {
+  outline: none;
+  background: transparent;
+}
+
+.chips.quick {
+  margin: 12px 0;
+}
+
+.chips.quick .chip {
+  background: white;
+  box-shadow: 0 2px 8px #7094ff14;
+}
+
+.chips.quick .chip.selected {
+  background: var(--blue);
+}
+
+.map {
+  overflow: hidden;
+  height: 240px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+}
+
+.map svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card.next {
+  position: relative;
+  margin-top: -28px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.route {
+  margin: 16px 0;
+}
+
+.route > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.route .line {
+  width: 1px;
+  height: 18px;
+  margin: 4px 0 4px 5px;
+  background: var(--line);
+}
+
+.dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.dot.dark {
+  background: var(--ink);
+}
+
+.dot.blue {
+  background: var(--blue);
+}
+
+.driver {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: white;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.share {
+  text-align: right;
+}
+
+.share small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.share strong {
+  color: var(--blue-dark);
+  font-size: 18px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions .btn {
+  margin-top: 16px;
+}
+
+.actions .btn.round {
+  width: auto;
+  padding: 14px 18px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.tile {
+  display: block;
+  padding: 16px 12px;
+  min-height: 110px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.tile strong {
+  display: block;
+  margin-top: 34px;
+  font-size: 15px;
+}
+
+.tile small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tile.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+.tile.primary small {
+  color: #ffffffcc;
+}
+
+.card.footprint {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 16px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.co2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* ---- Phones: show the bottom tab bar like the Figma design ---- */
+
+@media (max-width: 700px) {
+  nav.topnav a:not(.avatar) {
+    display: none;
+  }
+
+  body.has-tabbar {
+    padding-bottom: 76px;
+  }
+
+  .tabbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 4px 12px;
+    background: var(--page);
+    border-top: 1px solid var(--line);
+  }
+
+  .tabbar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .tabbar a.active {
+    color: var(--blue-dark);
+  }
+
+  .tabbar .icon svg {
+    display: block;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Fixes */
+.tabbar a.active {
+  background: transparent;
+  color: var(--blue-dark);
+}
+
+.tabbar a:hover {
+  background: transparent;
+}
+
+.badge {
+  white-space: nowrap;
+}
+
+.driver .grow strong {
+  display: inline-block;
+  margin-right: 4px;
+}

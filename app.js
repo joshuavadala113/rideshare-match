@@ -79,4 +79,10 @@ form.addEventListener("submit", event => {
 
 search.addEventListener("input", renderRides);
 
+// Coming from the Explore page? Fill in the search box.
+const startingSearch = new URLSearchParams(location.search).get("q");
+if (startingSearch) {
+  search.value = startingSearch;
+}
+
 renderRides();

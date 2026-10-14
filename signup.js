@@ -154,5 +154,5 @@ signupForm.addEventListener("submit", (event) => {
   addItem("users", user);
   setCurrentUser({ id: user.id, name: user.name, email: user.email, campus, plan });
 
-  window.location.href = "rides.html";
+  window.location.href = "dashboard.html";
 });
