@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Commute - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone">
+    <div class="label-row">
+      <span class="eyebrow">NEW ROUTE LISTING</span>
+      <span class="tag ok" id="activeCount">0 carpoolers active</span>
+    </div>
+    <h1 class="page-title">Create Commute</h1>
+    <p class="fine" style="margin-top:-8px">Sync routines, split fuel, and make campus connections easy.</p>
+
+    <form id="commuteForm" novalidate>
+      <!-- Driver or rider -->
+      <div class="segmented two" id="modeChoice">
+        <button type="button" class="seg selected" data-value="offer">I am driving</button>
+        <button type="button" class="seg" data-value="request">I need a ride</button>
+      </div>
+
+      <!-- Path -->
+      <section class="card">
+        <div class="label-row">
+          <h3 style="margin:0">Commute path</h3>
+          <button type="button" class="chip" id="invertBtn" style="margin:0">Invert</button>
+        </div>
+
+        <label for="from">Pickup point <small class="tag" style="color:var(--muted)">DEPARTING</small></label>
+        <input id="from" list="hubs" placeholder="e.g. 1200 Elm St, Denton" autocomplete="off">
+
+        <label for="to">Destination campus <small class="tag">VERIFIED HUB</small></label>
+        <input id="to" list="hubs" placeholder="e.g. UT Dallas" autocomplete="off">
+
+        <datalist id="hubs">
+          <option value="UNT">
+          <option value="UT Dallas">
+          <option value="SMU">
+          <option value="Dallas College">
+        </datalist>
+
+        <div class="route-summary" id="routeSummary">
+          <span class="abbr" id="abbrFrom">---</span>
+          <span aria-hidden="true">&rarr;</span>
+          <span class="abbr dark" id="abbrTo">---</span>
+          <div class="grow right">
+            <strong id="routeMiles" class="blue-text">Enter both places</strong>
+            <div class="fine" style="margin:0" id="routeNote">for a distance estimate</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Days -->
+      <section class="card gap">
+        <div class="label-row">
+          <div>
+            <h3 style="margin:0">Weekly frequency</h3>
+            <p class="fine" style="margin:2px 0 0">Select your repeating commute days</p>
+          </div>
+          <span class="pill" style="margin:0" id="dayCount">0 days/wk</span>
+        </div>
+        <div class="days" id="days">
+          <button type="button" class="day" data-day="Mon"><b>M</b>Mon</button>
+          <button type="button" class="day" data-day="Tue"><b>T</b>Tue</button>
+          <button type="button" class="day" data-day="Wed"><b>W</b>Wed</button>
+          <button type="button" class="day" data-day="Thu"><b>Th</b>Thu</button>
+          <button type="button" class="day" data-day="Fri"><b>F</b>Fri</button>
+        </div>
+      </section>
+
+      <!-- Time -->
+      <section class="card gap">
+        <h3 style="margin-top:0">Time schedule</h3>
+        <div class="two-col">
+          <div class="time-box">
+            <small>DEPART</small>
+            <input id="departTime" type="time" value="08:15">
+            <span class="tag">Morning routine</span>
+          </div>
+          <div class="time-box">
+            <small>RETURN <em>optional</em></small>
+            <input id="returnTime" type="time" value="17:30">
+            <span class="tag">Campus exit</span>
+          </div>
+        </div>
+        <p class="fine">Flexible &plusmn; 10 mins window for passenger pickups.</p>
+      </section>
+
+      <!-- Seats -->
+      <section class="card gap">
+        <div class="label-row">
+          <div>
+            <h3 style="margin:0" id="seatsTitle">Available seats</h3>
+            <p class="fine" style="margin:2px 0 0" id="seatsNote">Leave room for back row comfort</p>
+          </div>
+          <div class="stepper">
+            <button type="button" id="seatMinus" aria-label="Fewer seats">&minus;</button>
+            <strong id="seatCount">3</strong>
+            <button type="button" id="seatPlus" aria-label="More seats">+</button>
+          </div>
+        </div>
+
+        <div class="share-box">
+          <div class="grow">
+            <small>RECOMMENDED SHARE</small>
+            <div><strong id="perSeat" class="big">$0.00</strong> <span class="fine">/ seat split</span></div>
+          </div>
+          <div class="right">
+            <strong class="blue-text" id="weekly">Est. $0.00/wk</strong>
+            <div class="fine" style="margin:0">Gas &amp; toll offset</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Atmosphere -->
+      <section class="card gap">
+        <div class="label-row">
+          <h3 style="margin:0">Ride atmosphere</h3>
+          <span class="tag">Tap to toggle</span>
+        </div>
+        <div class="chips" id="atmosphere" style="margin-top:12px">
+          <button type="button" class="chip" data-value="Quiet ride">Quiet ride</button>
+          <button type="button" class="chip" data-value="EV only">EV only</button>
+          <button type="button" class="chip" data-value="Luggage friendly">Luggage friendly</button>
+          <button type="button" class="chip" data-value="Music welcome">Music welcome</button>
+        </div>
+      </section>
+
+      <div class="notice">
+        <strong>Protected campus network</strong>
+        <span>Only verified school and work email riders can request matches.</span>
+      </div>
+
+      <p id="message" class="error" role="status"></p>
+      <button type="submit" class="btn-primary-big">Publish Daily Commute</button>
+      <p class="fine center">You can pause or delete a commute anytime below.</p>
+    </form>
+
+    <div class="section-head"><h3>Your commutes</h3></div>
+    <div id="myCommutes"></div>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="postride.js"></script>
+</body>
+</html>

@@ -5,7 +5,7 @@
 // Shown when someone is logged in (matches the bottom bar in our Figma design)
 const APP_TABS = [
   { label: "Explore", href: "dashboard.html", icon: "compass" },
-  { label: "Post Ride", href: "rides.html", icon: "plus" },
+  { label: "Post Ride", href: "postride.html", icon: "plus" },
 ];
 
 // Shown when nobody is logged in

@@ -1040,3 +1040,221 @@ label.pref small {
 nav a.avatar:hover {
   background: var(--blue-dark);
 }
+
+/* ---- Post a ride (Create Commute) ---- */
+
+.segmented.two {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 16px;
+}
+
+.segmented.two .seg {
+  padding: 14px 6px;
+  font-size: 15px;
+}
+
+.segmented.two .seg.selected {
+  background: var(--blue);
+  color: white;
+}
+
+.card.gap {
+  margin-top: 14px;
+}
+
+.right {
+  text-align: right;
+}
+
+.blue-text {
+  color: var(--blue-dark);
+}
+
+.route-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--surface);
+  font-size: 14px;
+}
+
+.abbr {
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.abbr.dark {
+  background: #e4e4ea;
+  color: var(--ink);
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.day {
+  margin: 0;
+  padding: 12px 0;
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.day b {
+  display: block;
+  font-size: 15px;
+}
+
+.day:hover {
+  background: var(--blue-soft);
+}
+
+.day.selected {
+  background: var(--blue);
+  color: white;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.time-box {
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.time-box small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.time-box small em {
+  font-style: normal;
+  font-weight: 500;
+}
+
+.time-box input {
+  margin: 6px 0;
+  padding: 6px 0;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.time-box input:focus {
+  outline: none;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.stepper button {
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: white;
+  color: var(--ink);
+  font-size: 20px;
+}
+
+.stepper button:last-child {
+  background: var(--blue);
+  color: white;
+}
+
+.stepper strong {
+  min-width: 18px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.share-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #eef2ff, #f7f3ff);
+}
+
+.share-box small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.share-box .big {
+  font-size: 24px;
+}
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  font-size: 14px;
+}
+
+.notice span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.btn-primary-big {
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px #7094ff55;
+}
+
+.card.commute {
+  margin-bottom: 12px;
+}
+
+.card.commute.paused {
+  opacity: 0.6;
+}
+
+.card.commute .actions .btn-soft {
+  margin-top: 4px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.btn-soft.danger {
+  color: #c1121f;
+}
