@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Trip - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone">
+    <a class="back-link" href="messages.html" id="backLink">&#8592; Back</a>
+
+    <section class="livemap">
+      <svg viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-label="Simulated route map">
+        <rect width="400" height="300" fill="#e6ecf8"/>
+        <path d="M-10 250 C60 230 90 170 160 150 S300 90 410 40" stroke="#fff" stroke-width="14" fill="none"/>
+        <path id="route" d="M30 250 C90 215 120 170 180 150 S300 90 370 50" stroke="#1a1b22" stroke-width="4" fill="none"/>
+        <path id="done" d="" stroke="#ff6a00" stroke-width="5" fill="none"/>
+        <circle cx="30" cy="250" r="7" fill="#1a1b22"/>
+        <circle id="car" cx="30" cy="250" r="11" fill="#ff6a00" stroke="#fff" stroke-width="3"/>
+      </svg>
+      <div class="card live-head">
+        <div class="grow">
+          <span class="fine">ACTIVE TRIP</span>
+          <strong id="toDest" style="display:block;font-size:20px"></strong>
+        </div>
+        <div class="right"><span class="pill" style="margin:0" id="speed">0 mph</span><div class="fine" id="flow">Smooth flow</div></div>
+      </div>
+      <div class="eta-bar"><span id="etaText">Starting...</span><span class="pill" id="onTime" style="margin:0">ON TIME</span></div>
+      <button type="button" class="round-btn sos" id="sosBtn" aria-label="Safety">&#9888;</button>
+    </section>
+
+    <p class="fine center">Simulated GPS. No real location is used. One simulated minute passes every moment.</p>
+
+    <section class="card">
+      <div class="match-top">
+        <div class="avatar big" id="pAvatar">?</div>
+        <div class="grow"><strong id="pName"></strong><div class="fine" id="pCar"></div></div>
+        <span class="score high" id="pRating"></span>
+      </div>
+      <div class="stop" style="margin-top:14px"><span class="fine">PICKUP &middot; <b id="pickTime"></b></span><strong id="pickName"></strong></div>
+      <div class="stop"><span class="fine blue-text">DROPOFF &middot; <b id="dropTime"></b></span><strong id="dropName"></strong></div>
+    </section>
+
+    <section class="card">
+      <strong>Cost split</strong>
+      <div id="splitRows"></div>
+      <div class="label-row"><span>Trip total</span><strong id="splitTotal"></strong></div>
+      <p class="fine" id="payNote"></p>
+    </section>
+
+    <section class="card">
+      <label class="pref"><span><strong>Share live ETA</strong><span class="fine" style="display:block">Friends or family see when you arrive (simulated).</span></span>
+        <input type="checkbox" id="shareEta"></label>
+      <p class="fine" id="shareNote"></p>
+    </section>
+
+    <section class="notice" id="safetyBox">
+      <strong>Campus safety and trip support</strong>
+      <span id="safetyText">In an emergency call 911. Campus police numbers are on the Settings page.</span>
+    </section>
+
+    <p id="message" role="status"></p>
+    <button type="button" class="btn-primary-big" id="endBtn">End trip</button>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="matching.js"></script>
+  <script src="demo-data.js"></script>
+  <script src="trip.js"></script>
+</body>
+</html>

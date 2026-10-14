@@ -79,6 +79,14 @@ function showSent() {
     link.href = "messages.html?with=" + encodeURIComponent(theirs.userId);
     link.textContent = "Message " + theirs.userName.split(" ")[0];
     button.after(link);
+
+    // Demo shortcut: pretend the driver accepted and start the trip
+    const rec = findItems("matches", (m) => m.myCommuteId === mine.id && m.theirCommuteId === theirs.id)[0];
+    const go = document.createElement("a");
+    go.className = "btn btn-dark";
+    go.href = "trip.html?m=" + encodeURIComponent(rec.id);
+    go.textContent = "Start trip (demo)";
+    link.after(go);
   }
 }
 
