@@ -426,3 +426,66 @@ footer {
   color: var(--muted);
   font-size: 13px;
 }
+
+/* ---- Sign-in page ---- */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.sso {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin-top: 10px;
+  padding: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sso:hover {
+  background: var(--blue-soft);
+}
+
+.sso small {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: white;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.hubs {
+  margin-top: 22px;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.hubs .chip {
+  background: white;
+  cursor: default;
+}
+
+.hubs .chip:hover {
+  background: white;
+}

@@ -9,6 +9,7 @@ const NAV_LINKS = [
 
 // Only shown when nobody is logged in
 const LOGGED_OUT_LINKS = [
+  { label: "Log in", href: "login.html" },
   { label: "Sign up", href: "signup.html" },
 ];
 

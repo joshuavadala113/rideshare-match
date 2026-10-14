@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="single">
+    <section class="card">
+      <div class="pill" style="margin-top:0">TRUSTED COMMUTE NETWORK</div>
+      <h2>Welcome back</h2>
+      <p class="fine" style="margin-top:0">Sign in with your verified school or workplace email to find matching daily routes.</p>
+
+      <form id="loginForm" novalidate>
+        <label for="email">Institutional email</label>
+        <input id="email" type="email" autocomplete="email" placeholder="name@university.edu or @company.com">
+
+        <div class="label-row">
+          <label for="password">Password</label>
+          <a href="#" id="forgot" class="tag">Forgot password?</a>
+        </div>
+        <div class="password-wrap">
+          <input id="password" type="password" autocomplete="current-password" placeholder="Enter your password">
+          <button type="button" class="toggle" data-target="password">Show</button>
+        </div>
+
+        <button type="submit" class="btn-dark">Sign In</button>
+      </form>
+
+      <p id="message" class="error" role="status"></p>
+
+      <div class="divider"><span>OR CONNECT VIA SSO</span></div>
+
+      <button type="button" class="sso" id="googleSso">
+        <span>Continue with Google Workspace</span>
+      </button>
+      <button type="button" class="sso" id="oktaSso">
+        <span>Sign in with SSO / Okta Campus ID</span>
+        <small>SAML 2.0</small>
+      </button>
+
+      <div class="hubs">
+        <div class="label-row"><span class="tag" style="color:var(--muted)">SUPPORTED CAMPUS &amp; CORPORATE HUBS</span></div>
+        <div class="chips">
+          <span class="chip">UNT</span>
+          <span class="chip">UT Dallas</span>
+          <span class="chip">SMU</span>
+          <span class="chip">Dallas College</span>
+        </div>
+      </div>
+
+      <p class="fine center">New to RideShare Match? <a href="signup.html">Create an account</a></p>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
