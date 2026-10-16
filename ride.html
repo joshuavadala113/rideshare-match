@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ride Details - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone" id="page">
+    <a class="back-link" href="matches.html">&#8592; Back to matches</a>
+
+    <section class="card" id="personCard">
+      <div class="match-top">
+        <div class="avatar big" id="pAvatar">?</div>
+        <div class="grow">
+          <div class="name-line"><strong id="pName"></strong><span class="verified">&#10003;</span></div>
+          <div class="fine" id="pDetail"></div>
+        </div>
+        <span class="score high" id="pRating"></span>
+      </div>
+      <div class="info-grid" style="grid-template-columns:1fr">
+        <span id="pCar"></span>
+      </div>
+    </section>
+
+    <section class="card" style="padding:0;overflow:hidden">
+      <div class="map" style="height:150px;margin:0;border-radius:0;position:relative">
+        <svg viewBox="0 0 400 150" width="100%" height="100%" preserveAspectRatio="none" aria-label="Route sketch">
+          <rect width="400" height="150" fill="#e6ecf8"/>
+          <path d="M0 110 C80 120 120 60 200 70 S330 40 400 30" stroke="#fff" stroke-width="10" fill="none"/>
+          <path d="M40 120 C110 100 150 70 210 72 S320 50 360 36" stroke="#ff6a00" stroke-width="3" stroke-dasharray="6 6" fill="none"/>
+          <circle cx="40" cy="120" r="7" fill="#1a1b22"/><circle cx="360" cy="36" r="7" fill="#7094ff"/>
+        </svg>
+        <span class="pill" style="position:absolute;left:12px;bottom:12px;margin:0" id="affinity"></span>
+      </div>
+      <div style="padding:16px">
+        <div class="trip-bar card" style="margin:0 0 14px">
+          <strong id="daysLine"></strong>
+        </div>
+        <div class="stop"><span class="fine">PICKUP &middot; <b id="pickTime"></b></span><strong id="pickName"></strong><div class="fine" id="pickNote">Exact spot agreed in chat</div></div>
+        <div class="stop"><span class="fine blue-text">DROPOFF &middot; <b id="dropTime"></b></span><strong id="dropName"></strong><div class="fine">Campus drop-off point</div></div>
+        <p class="fine" id="transit"></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="label-row"><strong>Trip Cost Breakdown</strong><span class="badge">Fair Share Standard</span></div>
+      <div class="label-row"><span id="costLabel">Est. gas and toll</span><strong id="costTotal"></strong></div>
+      <div class="label-row"><span id="splitLabel"></span><strong class="blue-text" id="splitAmt"></strong></div>
+      <hr>
+      <div class="label-row">
+        <div><span class="fine">YOUR FAIR SHARE</span><div class="fine" id="poolNote"></div></div>
+        <div><span class="share-price" id="share"></span> <span class="fine">/ trip</span></div>
+      </div>
+      <p class="fine">Payment is simulated in this class project. No real money moves.</p>
+    </section>
+
+    <section class="notice">
+      <strong>Verified campus member</strong>
+      <span>Email is checked against school or work domains. Demo people are made up.</span>
+    </section>
+
+    <p id="message" role="status"></p>
+    <button type="button" class="btn-primary-big" id="confirmBtn">Confirm &amp; Request Seat</button>
+    <p class="fine center">You can cancel before the driver accepts.</p>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="matching.js"></script>
+  <script src="demo-data.js"></script>
+  <script src="ride.js"></script>
+</body>
+</html>

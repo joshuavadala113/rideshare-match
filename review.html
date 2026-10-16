@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone">
+    <div class="label-row" style="margin-top:14px">
+      <span class="pill" style="margin:0">&#10003; Trip Completed</span>
+      <a class="round-btn" href="dashboard.html" aria-label="Close" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink)">&#10005;</a>
+    </div>
+
+    <section class="card">
+      <span class="fine">ARRIVAL VERIFIED</span>
+      <strong style="display:block;font-size:20px" id="arrivedAt"></strong>
+      <div class="fine" id="arrivedTime"></div>
+    </section>
+
+    <section class="card center">
+      <div class="avatar big" id="pAvatar" style="margin:0 auto 10px;display:flex">?</div>
+      <strong style="font-size:22px" id="pName"></strong>
+      <p class="fine" id="ask"></p>
+      <div class="stars-row" id="stars" role="radiogroup" aria-label="Star rating"></div>
+      <strong class="blue-text" id="starLabel"></strong>
+    </section>
+
+    <div class="label-row"><strong>Leave Compliments</strong><span class="fine">Tap to toggle</span></div>
+    <div class="chips" id="compliments">
+      <button type="button" class="chip" data-v="Smooth Driving">Smooth Driving</button>
+      <button type="button" class="chip" data-v="On-Time Pickup">On-Time Pickup</button>
+      <button type="button" class="chip" data-v="Great Music">Great Music</button>
+      <button type="button" class="chip" data-v="Great Conversation">Great Conversation</button>
+      <button type="button" class="chip" data-v="Clean Car">Clean Car</button>
+      <button type="button" class="chip" data-v="Respectful & Quiet">Respectful &amp; Quiet</button>
+    </div>
+
+    <div class="label-row"><label for="note" style="margin:0"><strong>Campus Driver Note</strong></label><span class="fine">Optional</span></div>
+    <textarea id="note" rows="3" maxlength="300" placeholder="Share how the ride went"></textarea>
+
+    <section class="card">
+      <span class="fine">COST SPLIT DETAILS</span>
+      <div class="label-row"><span id="costLabel">Your share of gas &amp; tolls</span><span class="share-price" id="cost"></span></div>
+      <p class="fine">Payment is simulated. No real money moves.</p>
+    </section>
+
+    <div class="label-row"><strong>Add Appreciation Tip</strong><span class="fine" id="tipTo"></span></div>
+    <div class="segmented" id="tips" style="display:grid;grid-template-columns:repeat(4,1fr)">
+      <button type="button" class="seg" data-v="1">$1.00</button>
+      <button type="button" class="seg selected" data-v="2">$2.00</button>
+      <button type="button" class="seg" data-v="3">$3.00</button>
+      <button type="button" class="seg" data-v="0">No tip</button>
+    </div>
+
+    <p id="message" role="status"></p>
+    <button type="button" class="btn-primary-big" id="submit">Submit Review &amp; Done &rarr;</button>
+    <button type="button" class="btn-soft" id="reportBtn" style="margin-top:10px">Report a problem with this ride</button>
+
+    <!-- Report form (FR-10) -->
+    <section class="card hidden" id="reportBox">
+      <strong>Report a problem</strong>
+      <label for="reason">What happened?</label>
+      <select id="reason">
+        <option>Unsafe driving</option>
+        <option>Rude or inappropriate behavior</option>
+        <option>No-show</option>
+        <option>Fake profile</option>
+        <option>Something else</option>
+      </select>
+      <label for="details">Details</label>
+      <textarea id="details" rows="3" maxlength="500" placeholder="Tell us what happened"></textarea>
+      <p id="reportMsg" role="status"></p>
+      <button type="button" id="sendReport">Send report</button>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="matching.js"></script>
+  <script src="demo-data.js"></script>
+  <script src="review.js"></script>
+</body>
+</html>
