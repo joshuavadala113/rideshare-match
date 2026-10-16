@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-unused-vars
 // storage.js
 // One place that reads and writes all the app's data.
 // We use localStorage as our "database" since there is no server.
