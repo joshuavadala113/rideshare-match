@@ -4,7 +4,25 @@
 
 const DEMO_FLAG = "rsm_demoSeeded";
 
+// A demo admin so the admin page can be shown in class.
+// Email: admin@rideshare.demo  Password: admin123  (class demo only, never use a real password)
+function ensureAdmin() {
+  if (findItems("users", (u) => u.id === "demo_admin").length) return;
+  addItem("users", {
+    id: "demo_admin",
+    demo: true,
+    role: "admin",
+    name: "Demo Admin",
+    email: "admin@rideshare.demo",
+    password: "admin123",
+    campus: "UNT",
+    status: "active",
+    createdAt: new Date().toISOString(),
+  });
+}
+
 function seedDemoData() {
+  ensureAdmin();
   if (localStorage.getItem(DEMO_FLAG)) return;
 
   const people = [

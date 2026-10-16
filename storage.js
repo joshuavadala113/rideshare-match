@@ -12,6 +12,7 @@ const DB_KEYS = {
   reviews: "rsm_reviews",
   reports: "rsm_reports",
   notifications: "rsm_notifications",
+  tickets: "rsm_tickets",
 };
 
 function dbRead(key, fallback) {

@@ -92,7 +92,7 @@ function buildHeader() {
   nav.className = "topnav";
 
   if (user) {
-    APP_TABS.forEach((tab) => nav.appendChild(makeLink(tab, current, false)));
+    tabsFor(user).forEach((tab) => nav.appendChild(makeLink(tab, current, false)));
 
     const logout = document.createElement("a");
     logout.href = "index.html";
@@ -107,7 +107,7 @@ function buildHeader() {
     avatar.textContent = initials(user.name || user.email);
     nav.appendChild(avatar);
 
-    buildTabBar(current);
+    buildTabBar(current, user);
   } else {
     LOGGED_OUT_LINKS.forEach((link) => nav.appendChild(makeLink(link, current, false)));
   }
@@ -117,10 +117,21 @@ function buildHeader() {
 }
 
 // Bottom tab bar, only visible on phones (see style.css)
-function buildTabBar(current) {
+// Admins get a short menu with the admin page first
+function tabsFor(user) {
+  if (user && user.role === "admin") {
+    return [
+      { label: "Admin", href: "admin.html", icon: "people" },
+      { label: "Explore", href: "dashboard.html", icon: "compass" },
+    ];
+  }
+  return APP_TABS;
+}
+
+function buildTabBar(current, user) {
   const tabbar = document.createElement("nav");
   tabbar.className = "tabbar";
-  APP_TABS.forEach((tab) => tabbar.appendChild(makeLink(tab, current, true)));
+  tabsFor(user).forEach((tab) => tabbar.appendChild(makeLink(tab, current, true)));
   document.body.appendChild(tabbar);
   document.body.classList.add("has-tabbar");
 }
@@ -130,6 +141,17 @@ function buildFooter() {
   if (!footer) return;
   footer.textContent = "RideShare Match - CSCE 3444 Student Project";
 }
+
+// If an admin suspended or removed this account, end the session
+(function checkAccount() {
+  const current = typeof getCurrentUser === "function" ? getCurrentUser() : null;
+  if (!current) return;
+  const record = findItems("users", (u) => u.id === current.id)[0];
+  if (!record || record.status === "suspended") {
+    clearCurrentUser();
+    window.location.href = "login.html";
+  }
+})();
 
 buildHeader();
 buildFooter();

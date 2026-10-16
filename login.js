@@ -9,6 +9,8 @@ function showMessage(text, kind) {
   loginMessage.textContent = text;
 }
 
+ensureAdmin();
+
 // Already logged in? Skip this page.
 if (getCurrentUser()) {
   window.location.href = "dashboard.html";
@@ -72,6 +74,7 @@ loginForm.addEventListener("submit", (event) => {
     email: user.email,
     campus: user.campus,
     plan: user.plan,
+    role: user.role,
   });
 
   window.location.href = "dashboard.html";

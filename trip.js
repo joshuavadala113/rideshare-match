@@ -86,7 +86,7 @@ function runTrip() {
   });
 
   document.getElementById("sosBtn").addEventListener("click", () => {
-    text("safetyText", "Safety alert is a demo. In a real emergency call 911 now. Campus police numbers are on the Settings page.");
+    text("safetyText", "Safety alert is a demo. In a real emergency call 911 now. Campus police numbers and support tickets are on the Safety page.");
     document.getElementById("safetyBox").scrollIntoView({ behavior: "smooth", block: "center" });
   });
 

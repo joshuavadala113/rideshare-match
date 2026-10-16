@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safety &amp; Support - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone">
+    <a class="back-link" href="settings.html">&#8592; Back to settings</a>
+
+    <h2 style="margin:0 0 6px">Support &amp; Trust Center</h2>
+
+    <!-- Hotline -->
+    <section class="card emergency" id="hotline">
+      <strong>In an emergency, call 911</strong>
+      <p class="fine">Do this first if you feel unsafe or someone is hurt.</p>
+      <a class="btn btn-danger" href="tel:911">Call 911</a>
+      <hr>
+      <strong id="campusName">Campus police</strong>
+      <p class="fine" id="campusLine"></p>
+      <a class="btn btn-soft" id="campusCall" href="#" style="width:auto">Call campus police</a>
+      <p class="fine">Ask campus police about a safety escort if you are walking to or from your ride. These numbers are saved in the code, so double check them on your campus website.</p>
+    </section>
+
+    <!-- Ticket -->
+    <section class="card" id="ticket">
+      <strong>Open a support ticket</strong>
+      <form id="ticketForm" autocomplete="off">
+        <label for="category">What is it about?</label>
+        <select id="category">
+          <option>Safety concern</option>
+          <option>Problem with a ride</option>
+          <option>Payment question</option>
+          <option>Account help</option>
+          <option>Something else</option>
+        </select>
+
+        <label for="tripPick">Which ride? (optional)</label>
+        <select id="tripPick"><option value="">Not about a specific ride</option></select>
+
+        <label for="ticketMsg">Tell us what happened</label>
+        <textarea id="ticketMsg" rows="4" maxlength="600" placeholder="Share as much as you can"></textarea>
+
+        <p id="ticketNote" role="status"></p>
+        <button type="submit">Send ticket</button>
+      </form>
+    </section>
+
+    <h3>Your tickets</h3>
+    <div id="tickets"></div>
+
+    <!-- Guidelines -->
+    <h3 id="guidelines">Safety guidelines &amp; FAQs</h3>
+    <section class="card faq">
+      <details><summary>How does the verified badge work?</summary>
+        <p class="fine">Everyone signs up with a school or workplace email. Personal emails like Gmail are blocked. Drivers can also add their car details to show a vehicle badge.</p></details>
+      <details><summary>What is not allowed?</summary>
+        <p class="fine">Harassment, unsafe driving, no-shows without notice, fake profiles and anything illegal. Reports go to the admin queue, and repeat or serious problems lead to suspension.</p></details>
+      <details><summary>What should I do before getting in?</summary>
+        <p class="fine">Check the name and the car match what you see in the app, tell a friend your trip is starting, and turn on Share live ETA on the trip screen.</p></details>
+      <details><summary>How do I report someone?</summary>
+        <p class="fine">After a trip, use Report a problem on the Review page. You can also open a ticket here at any time.</p></details>
+    </section>
+
+    <!-- Privacy -->
+    <h3 id="privacy">Location sharing &amp; privacy</h3>
+    <section class="card">
+      <p class="fine" style="margin-top:0">This class demo does not collect real GPS. The live trip map is a simulation. Your commutes, messages and tickets are saved only in your own browser on this device, and nothing is sent to a server. Clearing your browser data removes them.</p>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="demo-data.js"></script>
+  <script src="support.js"></script>
+</body>
+</html>

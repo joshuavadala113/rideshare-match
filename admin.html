@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone">
+    <div class="label-row">
+      <span class="eyebrow"><i class="dot blue"></i> ADMIN</span>
+      <span class="pill" style="margin:0">Class demo</span>
+    </div>
+
+    <h3>Counts</h3>
+    <div class="stats" id="stats"></div>
+
+    <h3>Reports</h3>
+    <div class="segmented two" id="reportTabs">
+      <button type="button" class="seg selected" data-v="open">Open</button>
+      <button type="button" class="seg" data-v="done">Handled</button>
+    </div>
+    <div id="reports"></div>
+
+    <h3>Support tickets</h3>
+    <div id="tickets"></div>
+
+    <h3>People</h3>
+    <input type="search" id="find" placeholder="Search by name or email" aria-label="Search people">
+    <div id="people"></div>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="demo-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
