@@ -1,4 +1,3 @@
-// deno-lint-ignore-file no-unused-vars
 // storage.js
 // One place that reads and writes all the app's data.
 // We use localStorage as our "database" since there is no server.
@@ -14,6 +13,7 @@ const DB_KEYS = {
   reports: "rsm_reports",
   notifications: "rsm_notifications",
   tickets: "rsm_tickets",
+  adminLog: "rsm_adminLog",
 };
 
 function dbRead(key, fallback) {

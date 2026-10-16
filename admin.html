@@ -32,12 +32,30 @@
     <h3>Support tickets</h3>
     <div id="tickets"></div>
 
+    <h3>Decision log</h3>
+    <div id="log"></div>
+
     <h3>People</h3>
     <input type="search" id="find" placeholder="Search by name or email" aria-label="Search people">
     <div id="people"></div>
   </main>
 
   <footer id="siteFooter"></footer>
+
+  <!-- Every admin action asks for a reason first (FR-11, FR-12) -->
+  <div class="sheet hidden" id="reasonSheet" role="dialog" aria-label="Reason for this action">
+    <div class="sheet-body">
+      <h3 style="margin:0" id="reasonTitle">Reason</h3>
+      <p class="fine" id="reasonSub"></p>
+      <label for="reasonText">Reason (saved in the decision log)</label>
+      <textarea id="reasonText" rows="3" placeholder="Write at least 5 characters"></textarea>
+      <p class="fine" id="reasonNote" style="color:#c0392b"></p>
+      <div class="actions">
+        <button type="button" class="grow" id="reasonOk">Confirm</button>
+        <button type="button" class="btn-soft" id="reasonCancel" style="width:auto;padding:14px 18px">Cancel</button>
+      </div>
+    </div>
+  </div>
 
   <script src="storage.js"></script>
   <script src="layout.js"></script>
