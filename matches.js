@@ -148,6 +148,7 @@ function makeCard(match, mine) {
   const tags = el("div", "tag-row");
   c.atmosphere.forEach((t) => tags.appendChild(el("span", "chip small", t)));
   if (isDriver && person.car) tags.appendChild(el("span", "chip small", person.car));
+  if (isDriver && vehicleVerified(person)) tags.appendChild(el("span", "chip small", "\u2713 Verified vehicle"));
   tags.appendChild(el("span", "chip small", c.from + " → " + c.to));
   card.appendChild(tags);
 

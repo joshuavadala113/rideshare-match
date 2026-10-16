@@ -105,3 +105,8 @@ function findMatches(mine, candidates) {
   results.sort((a, b) => b.score - a.score);
   return results;
 }
+
+// A person's car shows a verified badge when an admin approved it. Demo drivers count as verified.
+function vehicleVerified(user) {
+  return !!user && (user.vehicleStatus === "verified" || (!!user.demo && !!user.car));
+}

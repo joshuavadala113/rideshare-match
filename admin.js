@@ -41,6 +41,7 @@ function drawStats() {
     [findItems("matches", (m) => m.status === "completed").length, "Trips done"],
     [findItems("reports", (r) => r.status === "open").length, "Open reports"],
     [findItems("tickets", (t) => t.status === "open").length, "Open tickets"],
+    [findItems("users", (u) => u.vehicleStatus === "pending").length, "Cars to check"],
   ];
   numbers.forEach(([n, label]) => {
     const cell = el("div");
@@ -114,6 +115,47 @@ function drawReports() {
       );
       card.appendChild(actions);
     }
+    box.appendChild(card);
+  });
+}
+
+// ---- Vehicle checks (FR-16) ----
+
+function drawVehicles() {
+  const box = document.getElementById("vehicles");
+  box.replaceChildren();
+  const list = findItems("users", (u) => u.vehicleStatus === "pending");
+
+  if (!list.length) {
+    const empty = el("div", "card center");
+    empty.appendChild(el("p", "fine", "No vehicles waiting."));
+    box.appendChild(empty);
+    return;
+  }
+
+  list.forEach((u) => {
+    const v = u.vehicle;
+    const card = el("article", "card");
+    const head = el("div", "label-row");
+    head.appendChild(el("strong", "", u.name));
+    head.appendChild(el("span", "badge", "Pending"));
+    card.appendChild(head);
+    card.appendChild(el("p", "", v.color + " " + v.make + " " + v.model + (v.year ? " (" + v.year + ")" : "") + " \u00b7 plate " + v.plate));
+
+    const actions = el("div", "actions");
+    actions.append(
+      btn("Approve", "btn-dark", () => {
+        updateItem("users", u.id, { vehicleStatus: "verified" });
+        notify(u.id, "Your vehicle was verified. Riders now see a verified badge.");
+        drawAll();
+      }),
+      btn("Reject", "btn-soft", () => {
+        updateItem("users", u.id, { vehicleStatus: "rejected" });
+        notify(u.id, "We couldn't verify your vehicle. Check the details on your vehicle page and submit again.");
+        drawAll();
+      })
+    );
+    card.appendChild(actions);
     box.appendChild(card);
   });
 }
@@ -197,6 +239,7 @@ function drawPeople() {
 function drawAll() {
   drawStats();
   drawReports();
+  drawVehicles();
   drawTickets();
   drawPeople();
 }

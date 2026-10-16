@@ -126,3 +126,15 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
 
 showProfile();
 loadPrefs();
+
+
+// ---- Vehicle summary (FR-16) ----
+
+(function showVehicle() {
+  const u = getUserRecord();
+  if (!u || !u.vehicle) return;
+  const labels = { pending: "Waiting for check", verified: "Verified", rejected: "Needs changes" };
+  document.getElementById("vehicleTag").textContent = labels[u.vehicleStatus] || "Added";
+  document.getElementById("vehicleName").textContent = u.car;
+  document.getElementById("vehicleSub").textContent = "Plate " + u.vehicle.plate;
+})();

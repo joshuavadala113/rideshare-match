@@ -41,7 +41,14 @@ text("pAvatar", (person.name || theirs.userName).split(" ").map((w) => w[0]).sli
 text("pName", theirs.userName + (person.demo ? " (Demo)" : ""));
 text("pDetail", person.detail || person.campus || "Campus member");
 text("pRating", person.rating ? "★ " + person.rating.toFixed(1) : "New");
-text("pCar", theirs.type === "offer" && person.car ? person.car + " · plate shared after you confirm" : (person.rides || 0) + " shared trips");
+const alreadyRequested = findItems("matches", (m) => m.myCommuteId === mine.id && m.theirCommuteId === theirs.id).length > 0;
+const plate = person.vehicle && person.vehicle.plate;
+let carLine = (person.rides || 0) + " shared trips";
+if (theirs.type === "offer" && person.car) {
+  carLine = person.car + (vehicleVerified(person) ? " \u00b7 \u2713 Verified vehicle" : "");
+  carLine += plate && alreadyRequested ? " \u00b7 Plate " + plate : " \u00b7 plate shared after you confirm";
+}
+text("pCar", carLine);
 text("affinity", result.score + "% route match");
 text("daysLine", result.sharedDays.join(", ") + " recurring");
 text("pickTime", formatTime(driver.departTime));

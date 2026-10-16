@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Vehicle - RideShare Match</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="siteHeader"></header>
+
+  <main class="phone">
+    <a class="back-link" href="settings.html">&#8592; Back to settings</a>
+    <h2 style="margin:0 0 6px">My vehicle</h2>
+    <p class="fine">Drivers add their car so riders know what to look for. An admin checks it and adds a verified badge.</p>
+
+    <section class="card" id="statusCard">
+      <div class="label-row"><strong>Status</strong><span class="badge" id="statusBadge">Not added</span></div>
+      <p class="fine" id="statusText"></p>
+    </section>
+
+    <section class="card">
+      <form id="vehicleForm" autocomplete="off">
+        <label for="make">Make</label>
+        <input id="make" type="text" placeholder="Toyota" maxlength="30">
+
+        <label for="model">Model</label>
+        <input id="model" type="text" placeholder="Prius" maxlength="30">
+
+        <div class="two-col">
+          <div>
+            <label for="color">Color</label>
+            <input id="color" type="text" placeholder="White" maxlength="20">
+          </div>
+          <div>
+            <label for="year">Year</label>
+            <input id="year" type="number" placeholder="2021" min="1990" max="2030">
+          </div>
+        </div>
+
+        <label for="plate">License plate</label>
+        <input id="plate" type="text" placeholder="ABC1234" maxlength="10" style="text-transform:uppercase">
+        <p class="fine">Riders only see your plate after you accept them. Never use a real plate you don't want shared in a class demo.</p>
+
+        <p id="message" role="status"></p>
+        <button type="submit" id="saveBtn">Save and submit for verification</button>
+        <button type="button" class="btn-soft danger hidden" id="removeBtn" style="margin-top:10px">Remove vehicle</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="storage.js"></script>
+  <script src="layout.js"></script>
+  <script src="vehicle.js"></script>
+</body>
+</html>
