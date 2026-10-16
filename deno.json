@@ -1,0 +1,17 @@
+{
+  "lint": {
+    "rules": {
+      "exclude": [
+        "no-unused-vars",
+        "no-undef",
+        "no-var",
+        "no-empty",
+        "no-inner-declarations",
+        "no-prototype-builtins",
+        "no-window",
+        "no-window-prefix",
+        "prefer-const"
+      ]
+    }
+  }
+}
