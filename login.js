@@ -35,11 +35,11 @@ document.getElementById("forgot").addEventListener("click", (event) => {
 });
 
 document.getElementById("googleSso").addEventListener("click", () => {
-  showMessage("Google Workspace sign-in is coming soon.", "error");
+  startSso("google", (error) => showMessage(error, "error"));
 });
 
 document.getElementById("oktaSso").addEventListener("click", () => {
-  showMessage("Okta Campus ID sign-in is coming soon.", "error");
+  startSso("okta", (error) => showMessage(error, "error"));
 });
 
 // ---- Submit ----
