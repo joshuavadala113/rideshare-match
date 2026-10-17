@@ -4,7 +4,7 @@ A carpool matching app for students and coworkers who travel the same route. Bui
 
 ## Team
 
-Priya Giri, Rupesh Bista, Sudip Sharma, Joshua Vadalas
+Priya Giri, Rupesh Bista, Sudip Sharma, Joshua Vadala
 
 ## What works right now
 
